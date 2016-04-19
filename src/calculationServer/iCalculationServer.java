@@ -1,7 +1,7 @@
 package calculationServer;
 
-import common.Ingredient;
-import common.Recipe;
+import recipeServer.Recipe;
+import ingredientServer.Ingredient;
 
 interface iCalculationServer extends java.rmi.Remote {
 

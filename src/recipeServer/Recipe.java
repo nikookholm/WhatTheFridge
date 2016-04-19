@@ -1,4 +1,4 @@
-package common;
+package recipeServer;
 
 public class Recipe {
 

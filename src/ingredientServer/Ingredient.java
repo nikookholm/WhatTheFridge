@@ -1,4 +1,4 @@
-package common;
+package ingredientServer;
 
 public class Ingredient {
 
