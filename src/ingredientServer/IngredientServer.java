@@ -3,6 +3,8 @@ package ingredientServer;
 import javax.xml.ws.Endpoint;
 
 public class IngredientServer implements iIngredientServer {
+	
+	
 
 	public static void main(String[] args) {
 
