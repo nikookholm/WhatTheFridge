@@ -2,19 +2,24 @@ package ingredientServer;
 
 public class Ingredient {
 
-	int ID;
-	String name;
-	int amount;
+	private int    id;
+	private String name;
+	private double amount;
+	private String unit;
 	
 	public int getID(){
-		return ID;
+		return id;
 	}
 	
 	public String getName(){
 		return name;
 	}
 	
-	public int getAmount(){
+	public double getAmount(){
 		return amount;
+	}
+	
+	public String getUnit(){
+		return unit;
 	}
 }
