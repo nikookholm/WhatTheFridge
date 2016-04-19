@@ -1,11 +1,17 @@
 package recipeServer;
 
+import ingredientServer.Ingredient;
+
+import java.awt.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Recipe {
 
-	int ID;
-	String name;
-	int[] ingredients;
-	String description;
+	private int ID;
+	private String name;
+	private ArrayList<Ingredient> ingredients;
+	private String description;
 	
 	public int getID(){
 		return ID;
@@ -15,7 +21,7 @@ public class Recipe {
 		return name;
 	}
 	
-	public int[] ingredients(){
+	public ArrayList<Ingredient> ingredients(){
 		return ingredients;
 	}
 	
