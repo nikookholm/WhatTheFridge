@@ -7,6 +7,14 @@ public class Ingredient {
 	private double amount;
 	private String unit;
 	
+	public Ingredient(int id, String name, double amount, String unit)
+	{
+		this.id     = id;
+		this.name   = name;
+		this.amount = amount;
+		this.unit   = unit;
+	}
+	
 	public int getID(){
 		return id;
 	}
