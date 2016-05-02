@@ -1,8 +1,15 @@
 package ingredientServer;
 
+import java.util.List;
+
 import javax.xml.ws.Endpoint;
 
+import database.DALException;
+import database.IngredientDB;
+
 public class IngredientServer implements iIngredientServer {
+	
+	IngredientDB db;
 
 	public static void main(String[] args) {
 
@@ -18,21 +25,23 @@ public class IngredientServer implements iIngredientServer {
 	public void initialize()
 	{
 		Endpoint.publish("localhost:1337", this);
+		db = new IngredientDB();
 	}
 
 	@Override
-	public void getIngredient(int id) {
-		// TODO Auto-generated method stub
+	public Ingredient getIngredient(int id) throws DALException {
+		return db.getIngredient(id);
+	}
+
+
+	@Override
+	public void addIngredient(Ingredient ingredient) throws DALException {
+		db.addIngredient(ingredient);
 	}
 
 	@Override
-	public void getAll() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void add(Ingredient ingredient) {
-		// TODO Auto-generated method stub
+	public List<Ingredient> getAll() throws DALException {
+		return db.getIngredientList();
 	}
 
 }

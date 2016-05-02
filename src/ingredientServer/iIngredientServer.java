@@ -1,18 +1,23 @@
 package ingredientServer;
 
+import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+
+import database.DALException;
 
 @WebService
 public interface iIngredientServer {
 
 	@WebMethod
-	public void getIngredient(int id);
+	public Ingredient getIngredient(int id) throws DALException;
 	
 	@WebMethod
-	public void getAll();
+	public List<Ingredient> getAll() throws DALException;
 	
 	@WebMethod
-	public void add(Ingredient ingredient);
+	public void addIngredient(Ingredient ingredient) throws DALException;
+	
 
 }
