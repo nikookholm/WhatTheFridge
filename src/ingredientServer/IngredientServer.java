@@ -8,7 +8,7 @@ import javax.xml.ws.Endpoint;
 import database.DALException;
 import database.IngredientDB;
 
-@WebService(endpointInterface = "ingredientServer.IngredientServer")
+@WebService(endpointInterface = "ingredientServer")
 public class IngredientServer implements iIngredientServer {
 	
 	IngredientDB db;
