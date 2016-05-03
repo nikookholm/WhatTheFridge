@@ -2,11 +2,13 @@ package ingredientServer;
 
 import java.util.List;
 
+import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
 import database.DALException;
 import database.IngredientDB;
 
+@WebService(endpointInterface = "ingredientServer.IngredientServer")
 public class IngredientServer implements iIngredientServer {
 	
 	IngredientDB db;
@@ -24,8 +26,9 @@ public class IngredientServer implements iIngredientServer {
 	
 	public void initialize()
 	{
-		Endpoint.publish("localhost:1337", this);
 		db = new IngredientDB();
+		Endpoint.publish("http://[::]:1337/ingredientserver", this);
+		
 	}
 
 	@Override

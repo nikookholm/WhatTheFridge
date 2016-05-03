@@ -4,8 +4,10 @@ import ingredientServer.Ingredient;
 
 import java.util.ArrayList;
 
+import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
+@WebService(endpointInterface = "recipeServer.recipeServer")
 public class RecipeServer implements iRecipeServer {
 		
 	public RecipeServer(){
@@ -13,7 +15,7 @@ public class RecipeServer implements iRecipeServer {
 	}
 
 	public void init(){
-		Endpoint.publish("localhost:4545", this);
+		Endpoint.publish("http://[::]:1337/recipeserver", this);
 	}
 
 	@Override
