@@ -7,32 +7,37 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
+import database.DALException;
+import database.RecipeDB;
+
 @WebService(endpointInterface = "recipeServer.recipeServer")
 public class RecipeServer implements iRecipeServer {
+	
+	private RecipeDB db; 
 		
 	public RecipeServer(){
 		init();
 	}
 
 	public void init(){
-		Endpoint.publish("http://[::]:1337/recipeserver", this);
+		db = new RecipeDB();
+		Endpoint.publish("http://[::]:3400/recipeserver", this);
+	}
+
+
+	@Override
+	public Recipe getRecipe(int id) throws DALException {
+		return db.getRecipe(id);
 	}
 
 	@Override
-	public ArrayList<Ingredient> getAllRecipes() {
-		return null;
-		
+	public void addRecipe(Recipe recipe) throws DALException{
+		db.addRecipe(recipe);
 	}
 
 	@Override
-	public int getRecipe(int id) {
-		
-		return 0;
-	}
-
-	@Override
-	public void addRecipe(){
-		
+	public ArrayList<Recipe> getRecipeList() throws DALException {
+		return db.getRecipeList();
 	}
 	
 	

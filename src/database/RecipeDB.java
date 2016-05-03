@@ -51,8 +51,8 @@ public class RecipeDB {
 		
 	}
 	
-	public List<Recipe> getIRecipeList() throws DALException {
-		List<Recipe> list = new ArrayList<Recipe>();
+	public ArrayList<Recipe> getRecipeList() throws DALException {
+		ArrayList<Recipe> list = new ArrayList<Recipe>();
 		ResultSet rs = Connector.doQuery("SELECT * FROM recipes");
 		try
 		{
