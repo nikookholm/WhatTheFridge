@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import ingredientServer.Ingredient;
 
-interface iCalculation extends java.rmi.Remote {
+interface iCalculation{
 
 	public boolean userLogin(String user, String password);
 	public Ingredient getIngredient(int ID);
