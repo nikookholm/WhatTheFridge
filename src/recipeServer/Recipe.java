@@ -13,6 +13,11 @@ public class Recipe {
 	private ArrayList<Ingredient> ingredients;
 	private String description;
 	
+	public Recipe(int id, String name, ArrayList<Ingredient> ingredients, String description)
+	{
+		
+	}
+	
 	public int getID(){
 		return ID;
 	}
@@ -21,12 +26,12 @@ public class Recipe {
 		return name;
 	}
 	
-	public ArrayList<Ingredient> ingredients(){
-		return ingredients;
-	}
-	
 	public String getDescription(){
 		return description;
+	}
+
+	public ArrayList<Ingredient> getIngredients() {
+		return ingredients;
 	}
 	
 }
