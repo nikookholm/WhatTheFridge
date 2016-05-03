@@ -11,16 +11,34 @@ import recipeServer.Recipe;
 
 public class RecipeDB {
 	
-	private ArrayList<Ingredient> loadIngredients(String dbInput)
+	private ArrayList<Ingredient> loadIngredients(String dbInput) throws DALException
 	{
+		ArrayList<Ingredient> ingredientsList = new ArrayList<Ingredient>();
+		IngredientDB db = new IngredientDB();
 		
+		int id;
+		
+		for(String s : dbInput.split(","))
+		{
+			id = Integer.parseInt(s);
+			ingredientsList.add(db.getIngredient(id));
+		}
 		
 		return new ArrayList<Ingredient>();
 	}
 	
 	private String saveIngredients(ArrayList<Ingredient> ingredients)
 	{
-		return "";
+		String idList = "";
+		
+		for(Ingredient i : ingredients)
+		{
+			idList += i + ",";
+		}
+		
+		idList = idList.substring(0, idList.length()-1);
+		
+		return idList;
 	}
 
 	public Recipe getRecipe(int recipeId) throws DALException {
