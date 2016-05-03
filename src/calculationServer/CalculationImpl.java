@@ -19,6 +19,11 @@ public class CalculationImpl extends UnicastRemoteObject implements iCalculation
 	Ingredient ingredient;
 	ArrayList<Ingredient> allIngredients;
 	
+	public boolean userLogin(String user, String password){
+		
+		return false;
+	}
+	
 	public Ingredient getIngredient(int ID){
 		return ingredient;
 	}
