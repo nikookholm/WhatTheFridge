@@ -19,5 +19,7 @@ public interface iIngredientServer {
 	@WebMethod
 	public void addIngredient(Ingredient ingredient) throws DALException;
 	
-
+	
+	public String isConnected();
+		
 }

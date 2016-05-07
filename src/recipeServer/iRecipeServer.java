@@ -18,5 +18,7 @@ public interface iRecipeServer {
 
 	@WebMethod
 	public abstract void addRecipe(Recipe recipe) throws DALException;
+	
+	public String isConnected();
 
 }

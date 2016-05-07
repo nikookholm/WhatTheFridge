@@ -8,7 +8,7 @@ import javax.xml.ws.Endpoint;
 import database.DALException;
 import database.IngredientDB;
 
-@WebService(endpointInterface = "ingredientServer.IngredientServer")
+@WebService(endpointInterface = "ingredientServer.iIngredientServer")
 public class IngredientServer implements iIngredientServer {
 	
 	IngredientDB db;
@@ -27,8 +27,12 @@ public class IngredientServer implements iIngredientServer {
 	public void initialize()
 	{
 		db = new IngredientDB();
-		Endpoint.publish("http://[::]:1337/ingredientserver", this);
+		Endpoint.publish("http://localhost:9999/iIngredientS", this);
 		
+	}
+	
+	public String isConnected(){
+		return "Connected to ingredients";
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package recipeServer;
 
 import ingredientServer.Ingredient;
+import ingredientServer.IngredientServer;
 
 import java.util.ArrayList;
 
@@ -10,18 +11,24 @@ import javax.xml.ws.Endpoint;
 import database.DALException;
 import database.RecipeDB;
 
-@WebService(endpointInterface = "recipeServer.recipeServer")
+@WebService(endpointInterface = "recipeServer.iRecipeServer")
 public class RecipeServer implements iRecipeServer {
 	
 	private RecipeDB db; 
+	
+	public static void main(String[] args) {
+
+		new RecipeServer();
 		
+	}
+	
 	public RecipeServer(){
 		init();
 	}
 
 	public void init(){
 		db = new RecipeDB();
-		Endpoint.publish("http://[::]:3400/recipeserver", this);
+		Endpoint.publish("http://localhost:9998/iRecipeS", this);
 	}
 
 
@@ -30,6 +37,9 @@ public class RecipeServer implements iRecipeServer {
 		return db.getRecipe(id);
 	}
 
+	public String isConnected(){
+		return "Connected to recipes";
+	}
 	@Override
 	public void addRecipe(Recipe recipe) throws DALException{
 		db.addRecipe(recipe);
